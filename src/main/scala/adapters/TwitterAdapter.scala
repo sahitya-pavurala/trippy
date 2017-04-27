@@ -1,5 +1,7 @@
 package com.trippy.adapters
 
+import java.lang.Thread
+
 import com.trippy.utils.TwitterUtil._
 import com.typesafe.config.Config
 import org.slf4j.LoggerFactory
@@ -19,8 +21,27 @@ class TwitterAdapter(config : Config) extends Adapter(config){
     adapter
   }
 
+
   override def execute(): Unit = {
-    println(adapter.getDirectMessages)
+    if(processType.equals("stream"))
+     executeStream()
+    else if(processType.equals("batch"))
+      executeBatch()
     println(adapter)
+  }
+
+  override def executeStream(): Unit = {
+    val messages = adapter.getDirectMessages
+    val stream = messages.stream()
+    stream.forEach(
+          x => {
+            println(x)
+            Thread.sleep(5000)
+          }
+    )
+  }
+
+  override def executeBatch(): Unit = {
+    println(adapter.getDirectMessages)
   }
 }

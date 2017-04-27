@@ -11,4 +11,8 @@ class CustomAdapter(config: Config) extends Adapter(config){
   override def execute(): Unit = ???
 
   override def getAdapter(config: Config): Unit = ???
+
+  override def executeStream(): Unit = ???
+
+  override def executeBatch(): Unit = ???
 }

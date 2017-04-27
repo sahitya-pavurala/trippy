@@ -15,10 +15,10 @@ class Driver{
     val adapters = getAdapters
     val classObjs = scala.collection.mutable.MutableList[com.trippy.adapters.Adapter]()
     for (i <- 0 until adapters.size()){
-
-        val cname = Class.forName(constMap(adapters.get(i).getString("classname")))
+        val adapter = adapters.get(i)
+        val cname = Class.forName(constMap(adapter.getString("classname")))
         classObjs += cname.getConstructors()(0)
-                            .newInstance(adapters.get(0))
+                            .newInstance(adapter)
                             .asInstanceOf[com.trippy.adapters.Adapter]
         LOGGER.info("Loaded constructor of "+ cname.getName);
 

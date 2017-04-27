@@ -7,6 +7,10 @@ import com.typesafe.config.Config
   */
 abstract class Adapter(config: Config) {
 
+  val processType = config.getString("type")
+
   def getAdapter(config : Config): Any
   def execute()
+  def executeStream()
+  def executeBatch()
 }

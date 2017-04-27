@@ -7,6 +7,6 @@ object Constants {
 
   def constMap(x : Any): String = x match {
     case "twitter" => "com.trippy.adapters.TwitterAdapter"
-    case "adapt2" => "com.trippy.adapters.CustomAdapter"
+    case "nycdata" => "com.trippy.adapters.NYCDAdapter"
   }
 }
