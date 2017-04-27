@@ -10,5 +10,6 @@ libraryDependencies ++= Seq(
   "org.scalatest" % "scalatest_2.11" % "2.2.2",
   "com.typesafe" % "config" % "1.3.1",
   "org.slf4j" % "slf4j-api" % "1.7.5",
-  "org.slf4j" % "slf4j-simple" % "1.7.5"
+  "org.slf4j" % "slf4j-simple" % "1.7.5",
+  "com.socrata" % "soda-consumer-scala_2.11" % "2.0.0"
 )

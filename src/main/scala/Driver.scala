@@ -18,7 +18,7 @@ class Driver{
 
         val cname = Class.forName(constMap(adapters.get(i).getString("classname")))
         classObjs += cname.getConstructors()(0)
-                            .newInstance(adapters.get(0))
+                            .newInstance(adapters.get(i))
                             .asInstanceOf[com.trippy.adapters.Adapter]
         LOGGER.info("Loaded constructor of "+ cname.getName);
 
